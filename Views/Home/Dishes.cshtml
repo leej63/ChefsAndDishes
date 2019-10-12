@@ -1,0 +1,27 @@
+<h1><a href="/">Chefs</a> | Dishes</h1>
+<a href="/dishes/new">Add a Dish</a>
+<h2>Yum, take a look at our tasty dishes!</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Chef</th>
+            <th scope="col">Tastiness</th>
+            <th scope="col">Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var dish in ViewBag.allDishes)
+            {
+                <tr>
+                    <td>@dish.Name</td>
+                    <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                    <td>@dish.Tastiness</td>
+                    <td>@dish.Calories</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

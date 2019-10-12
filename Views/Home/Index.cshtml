@@ -1,0 +1,28 @@
+﻿<h1>Chefs | <a href="/dishes">Dishes</a></h1>
+<a href="/new">Add a Chef</a>
+<h2>Check out our roster of Chefs!</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col"># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var chef in ViewBag.allChefs)
+            {
+                DateTime today = DateTime.Now;
+                TimeSpan span = today - (DateTime)@chef.Birthday;
+                DateTime zeroTime = new DateTime(1,1,1);
+                int years = (zeroTime + span).Year - 1;
+                <tr>
+                    <td>@chef.FirstName @chef.LastName</td>
+                    <td>@years</td>
+                    <td>@chef.CreatedDishes.Count</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
